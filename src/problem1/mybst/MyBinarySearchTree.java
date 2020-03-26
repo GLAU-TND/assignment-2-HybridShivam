@@ -71,7 +71,7 @@ public class MyBinarySearchTree {
     }
     public void traversePreOrder(TreeNode node){
         if(node==null){
-
+            return;
         }
         else{
             System.out.println(node.getData());
