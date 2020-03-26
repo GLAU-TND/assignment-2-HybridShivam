@@ -18,18 +18,15 @@ public class MyMain {
         mytree.insert(70);
         mytree.insert(60);
         mytree.insert(80);
-        int elementToSearch=16;
-        //System.out.println(elementToSearch +" present ?:"+mytree.search(elementToSearch));
-        //mytree.traversePreOrder(mytree.getRoot());
+        int elementToSearch=89;
+        System.out.println(elementToSearch +" present ? : "+mytree.search(elementToSearch));
         System.out.println("In Order Traversal of tree :");
         mytree.traverseInOrder();
         System.out.println("Pre Order Traversal of tree :");
         mytree.traversePreOrder();
         System.out.println("Post Order Traversal of tree :");
         mytree.traversePostOrder();
-        //mytree.traverseInOrder(mytree.getRoot());
-        //mytree.traverseInOrder(mytree.getRoot());
-        //System.out.println("Node Count is "+mytree.getfullCount(mytree.getFirstNode()));
+        System.out.println("Total no of nodes : "+mytree.getfullCount(mytree.getRoot()));
     }
 }
 
