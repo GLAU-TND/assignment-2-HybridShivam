@@ -2,14 +2,19 @@
  *  Created by IntelliJ IDEA.
  *  User: HybridShivam
  */
-package problem1.mybst;
-import problem1.node.TreeNode;
+package problem2.mybst;
+// to implement BinarySearchTree
+
+import problem2.node.TreeNode;
+
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class MyBinarySearchTree {
     private TreeNode root;
 
-    public MyBinarySearchTree() {
-        root = null;
+    public MyBinarySearchTree(){
+        root=null;
     }
 
     public TreeNode getRoot() {
@@ -17,26 +22,28 @@ public class MyBinarySearchTree {
     }
 
 
-    public void insert(int data) {
-        root = insertRecursive(root, data);
+    public void insert(int data){
+        root=insertRecursive(root,data);
     }
 
-    TreeNode insertRecursive(TreeNode root, int data) {
-        if (root == null) {
-            root = new TreeNode(data);
+    TreeNode insertRecursive(TreeNode root,int data){
+        if(root==null){
+            root=new TreeNode(data);
             return root;
-        } else {
-            if (root.getData() > data) {
-                root.setLeft(insertRecursive(root.getLeft(), data));
-            } else if (root.getData() < data) {
-                root.setRight(insertRecursive(root.getRight(), data));
+        }
+        else{
+            if(root.getData()>data){
+                root.setLeft(insertRecursive(root.getLeft(),data));
+            }
+            else if(root.getData()<data){
+                root.setRight(insertRecursive(root.getRight(),data));
             }
             return root;
         }
     }
 
 
-    public void traverseInOrder() {
+    public void traverseInOrder()  {
         traverseInOrderRec(root);
         System.out.println();
     }
@@ -45,35 +52,34 @@ public class MyBinarySearchTree {
     void traverseInOrderRec(TreeNode root) {
         if (root != null) {
             traverseInOrderRec(root.getLeft());
-            System.out.print(root.getData() + " ");
+            System.out.print(root.getData()+" ");
             traverseInOrderRec(root.getRight());
         }
     }
 
     //prints only left nodes
-    public int traverseLeft() {
+    public int traverseLeft()  {
         int noOfNodesNotHavingLeftChild = traverseLeftNodesRec(root, false);
         System.out.println();
         return noOfNodesNotHavingLeftChild;
-
     }
 
     // A recursive function to do left traversal of BST
     //Also returns no of nodes not having left subchild
-    int traverseLeftNodesRec(TreeNode root, boolean fromLeft) {
-        int count = 0;
+    int traverseLeftNodesRec(TreeNode root,boolean fromLeft) {
+        int count=0;
         if (root != null) {
-            if (fromLeft == true)
-                System.out.print(root.getData() + " ");
-            if (root.getLeft() == null) {
+            if(fromLeft==true)
+                System.out.print(root.getData()+" ");
+            if(root.getLeft()==null){
                 count++;
             }
-            return count = count + traverseLeftNodesRec(root.getLeft(), true) + traverseLeftNodesRec(root.getRight(), false);
+            return count=count+traverseLeftNodesRec(root.getLeft(),true) + traverseLeftNodesRec(root.getRight(),false);
         }
         return count;
     }
 
-    public void traversePreOrder() {
+    public void traversePreOrder()  {
         traversePreOrderRec(root);
         System.out.println();
     }
@@ -81,13 +87,13 @@ public class MyBinarySearchTree {
     // A recursive function to do preorder traversal of BST
     void traversePreOrderRec(TreeNode root) {
         if (root != null) {
-            System.out.print(root.getData() + " ");
+            System.out.print(root.getData()+" ");
             traversePreOrderRec(root.getLeft());
             traversePreOrderRec(root.getRight());
         }
     }
 
-    public void traversePostOrder() {
+    public void traversePostOrder()  {
         traversePostOrderRec(root);
         System.out.println();
     }
@@ -97,25 +103,26 @@ public class MyBinarySearchTree {
         if (root != null) {
             traversePostOrderRec(root.getLeft());
             traversePostOrderRec(root.getRight());
-            System.out.print(root.getData() + " ");
+            System.out.print(root.getData()+" ");
         }
     }
 
-    //Searches Element
-    public boolean search(int data) {
-        TreeNode node = searchRec(root, data);
-        if (node == null) {
+    public boolean search(int data){
+        TreeNode node=searchRec(root,data);
+        if(node==null){
             return false;
-        } else if (node.getData() == data) {
+        }
+        else if(node.getData()==data){
             return true;
-        } else {
+        }
+        else {
             return false;
         }
     }
-
-    public TreeNode searchRec(TreeNode root, int data) {
+    public TreeNode searchRec(TreeNode root, int data)
+    {
         // Base Cases: root is null or key is present at root
-        if (root == null || root.getData() == data)
+        if (root==null || root.getData()==data)
             return root;
 
         // val is greater than root's key
@@ -126,7 +133,7 @@ public class MyBinarySearchTree {
         return searchRec(root.getRight(), data);
     }
 
-    public int count() {
+    public int count(){
         return countRec(root);
     }
 
