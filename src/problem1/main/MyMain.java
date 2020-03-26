@@ -23,6 +23,10 @@ public class MyMain {
         //mytree.traversePreOrder(mytree.getRoot());
         System.out.println("In Order Traversal of tree :");
         mytree.traverseInOrder();
+        System.out.println("Pre Order Traversal of tree :");
+        mytree.traversePreOrder();
+        System.out.println("Post Order Traversal of tree :");
+        mytree.traversePostOrder();
         //mytree.traverseInOrder(mytree.getRoot());
         //mytree.traverseInOrder(mytree.getRoot());
         //System.out.println("Node Count is "+mytree.getfullCount(mytree.getFirstNode()));

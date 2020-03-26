@@ -67,12 +67,25 @@ public class MyBinarySearchTree {
         traversePreOrderRec(root);
     }
 
-    // A utility function to do inorder traversal of BST
+    // A utility function to do preorder traversal of BST
     void traversePreOrderRec(TreeNode root) {
         if (root != null) {
-            traverseInOrderRec(root.getLeft());
             System.out.println(root.getData());
+            traverseInOrderRec(root.getLeft());
             traverseInOrderRec(root.getRight());
+        }
+    }
+
+    public void traversePostOrder()  {
+        traversePreOrderRec(root);
+    }
+
+    // A utility function to do preorder traversal of BST
+    void traversePostOrderRec(TreeNode root) {
+        if (root != null) {
+            traverseInOrderRec(root.getLeft());
+            traverseInOrderRec(root.getRight());
+            System.out.println(root.getData());
         }
     }
 //    public void insert(int data) {
