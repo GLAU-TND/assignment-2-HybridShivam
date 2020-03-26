@@ -19,6 +19,8 @@ public class MyMain {
         int elementToSearch=16;
         System.out.println(elementToSearch +" present ?:"+mytree.search(elementToSearch));
         mytree.traversePreOrder(mytree.getRoot());
+        System.out.println("In Order Traversal of tree :");
+        //mytree.traverseInOrder(mytree.getRoot());
         //mytree.traverseInOrder(mytree.getRoot());
         System.out.println("Node Count is "+mytree.getfullCount(mytree.getFirstNode()));
     }
