@@ -20,7 +20,10 @@ public class MyMain {
         mytree.insert(80);
         mytree.insert(90);
         mytree.insert(10);
-        System.out.println("Left Nodes Only : ");
+        System.out.println("PreOrder Traversal : ");
+        mytree.traversePreOrder();
+        System.out.println("Left children Only : ");
+        //traverseLeft() methods prints all left children as well as returns the no of nodes not having left a child
         System.out.println("No of nodes not having Left Subchild: "+mytree.traverseLeft());
 //        int elementToSearch=89;
 //        System.out.println(elementToSearch +" present ? : "+mytree.search(elementToSearch));
