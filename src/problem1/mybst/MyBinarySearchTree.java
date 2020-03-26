@@ -14,11 +14,15 @@ import java.util.LinkedList;
 
 public class MyBinarySearchTree {
     private TreeNode root;
-    private TreeNode firstNode;
+    //private TreeNode firstNode;
 
-    public TreeNode getFirstNode() {
-        return firstNode;
+    public MyBinarySearchTree(){
+        root=null;
     }
+
+//    public TreeNode getFirstNode() {
+//        return firstNode;
+//    }
 
     public TreeNode getRoot() {
         return root;
@@ -26,32 +30,45 @@ public class MyBinarySearchTree {
 
 
     public void insert(int data){
-        insertRecursive(root,data);
+        root=insertRecursive(root,data);
     }
 
-    private TreeNode insertRecursive(TreeNode root,int data){
+    TreeNode insertRecursive(TreeNode root,int data){
         if(root==null){
             root=new TreeNode(data);
             return root;
         }
         else{
             if(root.getData()>=data){
-                root.setLeft(new TreeNode(data));
+                root.setLeft(insertRecursive(root.getLeft(),data));
             }
             else if(root.getData()<data){
-                root.setRight(new TreeNode(data));
+                root.setRight(insertRecursive(root.getRight(),data));
             }
             return root;
         }
     }
 
 
-    void traverseInOrder()  {
+    public void traverseInOrder()  {
         traverseInOrderRec(root);
     }
 
     // A utility function to do inorder traversal of BST
     void traverseInOrderRec(TreeNode root) {
+        if (root != null) {
+            traverseInOrderRec(root.getLeft());
+            System.out.println(root.getData());
+            traverseInOrderRec(root.getRight());
+        }
+    }
+
+    public void traversePreOrder()  {
+        traversePreOrderRec(root);
+    }
+
+    // A utility function to do inorder traversal of BST
+    void traversePreOrderRec(TreeNode root) {
         if (root != null) {
             traverseInOrderRec(root.getLeft());
             System.out.println(root.getData());
@@ -102,25 +119,25 @@ public class MyBinarySearchTree {
         return response;
     }
 
-    public void traversePreOrder(TreeNode node) {
-        if (node == null) {
-            return;
-        } else {
-            System.out.println(node.getData());
-            traversePreOrder(node.getLeft());
-            traversePreOrder(node.getRight());
-        }
-    }
-
-    public void traverseInOrder(TreeNode node) {
-        if (node == null) {
-
-        } else {
-            traversePreOrder(node.getLeft());
-            System.out.println(node.getData());
-            traversePreOrder(node.getRight());
-        }
-    }
+//    public void traversePreOrder(TreeNode node) {
+//        if (node == null) {
+//            return;
+//        } else {
+//            System.out.println(node.getData());
+//            traversePreOrder(node.getLeft());
+//            traversePreOrder(node.getRight());
+//        }
+//    }
+//
+//    public void traverseInOrder(TreeNode node) {
+//        if (node == null) {
+//
+//        } else {
+//            traversePreOrder(node.getLeft());
+//            System.out.println(node.getData());
+//            traversePreOrder(node.getRight());
+//        }
+//    }
 
 /*    public int nodeCount()
     {
