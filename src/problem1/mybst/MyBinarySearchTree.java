@@ -110,13 +110,17 @@ public class MyBinarySearchTree {
         return searchRec(root.getRight(), data);
     }
 
-    
-    public int getfullCount(TreeNode root) {
+    public int count(){
+        return countRec(root);
+    }
+
+    // A recursive function to count total no of nodes of BST
+    public int countRec(TreeNode root) {
         if (root == null)
             return 0;
         int count = 0;
         count++;
-        count += (getfullCount(root.getLeft()) + getfullCount(root.getRight()));
+        count += (countRec(root.getLeft()) + countRec(root.getRight()));
         return count;
     }
 }

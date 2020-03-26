@@ -26,7 +26,7 @@ public class MyMain {
         mytree.traversePreOrder();
         System.out.println("Post Order Traversal of tree :");
         mytree.traversePostOrder();
-        System.out.println("Total no of nodes : "+mytree.getfullCount(mytree.getRoot()));
+        System.out.println("Total no of nodes : "+mytree.count());
     }
 }
 
