@@ -58,6 +58,27 @@ public class MyBinarySearchTree {
         }
     }
 
+    //prints only left nodes
+    public int traverseLeft()  {
+        return traverseLeftRec(root,false);
+
+    }
+
+    // A recursive function to do left traversal of BST
+    
+    int traverseLeftRec(TreeNode root,boolean fromLeft) {
+        int count=0;
+        if (root != null) {
+            if(fromLeft==true)
+            System.out.println(root.getData());
+            if(root.getLeft()==null){
+                count++;
+            }
+            return count=count+traverseLeftRec(root.getLeft(),true) + traverseLeftRec(root.getRight(),false);
+        }
+        return count;
+    }
+
     public void traversePreOrder()  {
         traversePreOrderRec(root);
     }
