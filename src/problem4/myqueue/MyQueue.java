@@ -26,10 +26,6 @@ public class MyQueue {
         TreeNode root=tree.getRoot();
         storePreOrderSuccesssorRec(root);
     }
-//    public void traversePreOrder() {
-//        traversePreOrderRec(root);
-//        System.out.println();
-//    }
 
     // A recursive function to do preorder traversal of BST
     void storePreOrderSuccesssorRec(TreeNode root) {
