@@ -2,7 +2,7 @@
  *  Created by IntelliJ IDEA.
  *  User: HybridShivam
  */
-package problem1.node;
+package problem2.node;
 
 public class TreeNode {
     private int data;
